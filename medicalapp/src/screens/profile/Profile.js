@@ -1,5 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text,Modal } from 'react-native'
 import React from 'react'
+import { useState } from 'react'
 import TabNavigator from '../../routes/TabNavigator'
 import AppWrapper from '../../components/AppWrapper'
 import { mycolors } from '../../utils/color'
@@ -11,7 +12,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native'
 
 const Profile = () => {
+  const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation()
+
+  const handleLogout = () => {
+    // Implement your logout logic here
+    // For now, just close the modal
+    setModalVisible(false);
+    navigation.navigate('Login');
+  };
+
+
   return (
     <AppWrapper>
    <View style={{flexDirection:'row',flex:1.0,alignItems:'center', justifyContent: 'center'}}>
@@ -90,7 +101,7 @@ const Profile = () => {
         <Ionicons name='settings-outline'size ={39} color={mycolors.ThemeBlue}/>
         </View>
         <Text style={{marginLeft:25,marginTop:10,color:mycolors.black, fontFamily:'LeagueSpartan-Regular', fontSize:24}}>Settings</Text> 
-        <TouchableOpacity style={{position: 'absolute',right: 25,marginTop:10}}>
+        <TouchableOpacity style={{position: 'absolute',right: 25,marginTop:10}} onPress={() => navigation.navigate('AppSettings')}>
   <MaterialIcons 
     name="arrow-forward-ios" 
     size={30} 
@@ -118,7 +129,7 @@ const Profile = () => {
        
         </View>
         <Text style={{marginLeft:25,marginTop:10,color:mycolors.black, fontFamily:'LeagueSpartan-Regular', fontSize:24}}>Logout</Text> 
-        <TouchableOpacity style={{position: 'absolute',right: 25,marginTop:10}} onPress={() => navigation.navigate('Logout')}>
+        <TouchableOpacity style={{position: 'absolute',right: 25,marginTop:10}} onPress={() => setModalVisible(true)}>
   <MaterialIcons 
     name="arrow-forward-ios" 
     size={30} 
@@ -132,6 +143,35 @@ const Profile = () => {
     <View style={{flex:0.7, backgroundColor:mycolors.white,justifyContent: 'center', alignItems: 'center',borderWidth:0.55,borderColor:'#ebf1f7'}}>
     <TabNavigator/>
   </View>
+
+    {/* Modal for Logout Confirmation */}
+    <Modal
+  transparent={true}
+  animationType="slide"
+  visible={modalVisible}
+  onRequestClose={() => setModalVisible(false)}
+>
+  <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0)' }}>
+    <View style={{ flex:0.2,width: '100%', backgroundColor: 'white', padding: 20,borderWidth:1.5,borderColor:'#ebf1f7', borderTopLeftRadius: 50, borderTopRightRadius: 50 }}>
+    <Text style={{ color: mycolors.ThemeBlue,  textAlign: 'center',fontFamily: 'LeagueSpartan-SemiBold', fontSize: 24 }}>
+              Log Out
+            </Text>
+      <Text style={{ fontSize: 18, textAlign: 'center', color: mycolors.black }}>
+        Are you sure you want to logout?
+      </Text>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
+        <TouchableOpacity onPress={() => setModalVisible(false)} style={{backgroundColor:'#cad6ff', width:143,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',marginLeft:20}}>
+          <Text style={{ color: mycolors.ThemeBlue, fontSize: 22,textAlign:'center' ,fontFamily: 'LeagueSpartan-SemiBold',}}>Cancel</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleLogout} style={{backgroundColor:mycolors.ThemeBlue, width:143,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',marginRight:20}}>
+          <Text style={{ color: mycolors.white, fontSize: 22,fontFamily: 'LeagueSpartan-SemiBold',textAlign:'center' }}>Logout</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  </View>
+</Modal>
+
+
   </AppWrapper>
   )
 }

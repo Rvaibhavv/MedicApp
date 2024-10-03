@@ -27,11 +27,11 @@ const TabNavigator = () => {
 
   // Helper function to determine icon color
   const getIconColor = (tab) => {
-    return activeTab === tab ? 'grey' : mycolors.white; // Change color if active
+    return activeTab === tab ? '#cad6ff' : mycolors.white; // Change color if active
   };
 
   return (
-    <View style={{ flexDirection: 'row', backgroundColor: "#809cff", width: 360, height: 50, justifyContent: 'center', alignItems: 'center', borderRadius: 30, marginTop: 3 }}>
+    <View style={{ flexDirection: 'row', backgroundColor: "#a5b5ff", width: 360, height: 50, justifyContent: 'center', alignItems: 'center', borderRadius: 30, marginTop: 3 }}>
       <TouchableOpacity onPress={() => handleTabPress('Home')}>
         <Ionicons name="home-outline" size={30} color={getIconColor('Home')} style={{ marginLeft: 30, marginRight: 30 }} />
       </TouchableOpacity>

@@ -9,7 +9,9 @@ import Feather from 'react-native-vector-icons/Feather'
 import Doctorinfolist from './Doctorinfolist'
 import TabNavigator from '../../routes/TabNavigator'
 import { useUser } from '../../components/UserContext'
+import { useNavigation } from '@react-navigation/native'
 const Home = () => {
+  const navigation = useNavigation();
   const { userData } = useUser();
   console.log('User Data in Home:', userData);
 
@@ -21,7 +23,10 @@ const Home = () => {
      <View>
       <Text style={{paddingTop:8,left:15,fontSize:16,color:mycolors.ThemeBlue,fontFamily:'LeagueSpartan-Thin'}} >Hi,WelcomeBack</Text>
       
-      <Text style ={{left:15,color:mycolors.black,fontSize:18,fontFamily:'LeagueSpartan-Regular'}}>{userData.name}</Text>
+      <Text style ={{left:15,color:mycolors.black,fontSize:18,fontFamily:'LeagueSpartan-Regular'}}>
+        {/* {userData.name} */}
+        John Doe
+        </Text>
       </View>
       <TouchableOpacity style={{marginLeft:145,marginRight:1,marginTop:7,width: 48, height: 48, backgroundColor: '#cad6ff', justifyContent:'center', borderRadius: 24,  alignItems: 'center', }}>
       <Ionicons name ='notifications-outline' size ={30} color={mycolors.black}/>
@@ -32,8 +37,10 @@ const Home = () => {
     </View>
     <View style={{flexDirection:'row',marginTop:8}}>
       <View style={{justifyContent:'center',alignItems:'center'}}>
+      <TouchableOpacity style={{justifyContent:'center',alignItems:'center'}} onPress={()=>navigation.navigate('Doctor')}>
       <MaterialCommunityIcons name ="stethoscope" size={25} color={mycolors.ThemeBlue} style ={{marginLeft:20,marginRight:20,marginTop:7}} />
       <Text style={{color:mycolors.ThemeBlue}}>Doctor</Text>
+      </TouchableOpacity>
       </View>
       <View style={{justifyContent:'center',alignItems:'center'}}>
       <AntDesign name ="hearto" size={25} color={mycolors.ThemeBlue} style ={{marginLeft:20,marginRight:20,marginTop:7}} />

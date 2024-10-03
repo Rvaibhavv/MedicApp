@@ -13,13 +13,14 @@ import Schedule from '../screens/schedule/Schedule'
 import Profile from '../screens/profile/Profile'
 import Wrong from '../screens/authenticate/Wrong'
 import Logout from '../screens/profile/Logout'
-import TabNavigator from './TabNavigator'
-
+import AppSettings from '../screens/profile/AppSettings'
+import Doctor from '../screens/Doctors/Doctor'
+import Ai from '../screens/notification&chat/Ai'
 const Stack = createNativeStackNavigator();
 
 const StackRoute = () => {
   return (
-  <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Login' >
+  <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Chat' >
 <Stack.Screen name="Splash" component={Splash}/>
 <Stack.Screen name="Welcome" component={Welcome}/>
 <Stack.Screen name="Login" component={Login}/>
@@ -31,6 +32,9 @@ const StackRoute = () => {
 <Stack.Screen name="Profile" component={Profile}/> 
 <Stack.Screen name="Wrong" component={Wrong}/> 
 <Stack.Screen name="Logout" component={Logout}/> 
+<Stack.Screen name="AppSettings" component={AppSettings}/> 
+<Stack.Screen name="Doctor" component={Doctor}/> 
+<Stack.Screen name="Ai" component={Ai}/> 
   </Stack.Navigator>
   )
 }

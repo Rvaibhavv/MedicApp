@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, Text, FlatList, StyleSheet } from 'react-native'; 
+import React, { useEffect, useState} from 'react';
+import { SafeAreaView, View, Text,TouchableOpacity, FlatList, StyleSheet } from 'react-native'; 
 import axios from 'axios';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { mycolors } from '../../utils/color';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { BASE_URL } from '../../components/Config';
+import AppWrapper from '../../components/AppWrapper';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 // API configuration
 const api = axios.create({
@@ -13,7 +15,7 @@ const api = axios.create({
 });
 
 // ItemList component
-const ItemList = () => {
+const DoctorList = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -41,7 +43,7 @@ const ItemList = () => {
                                 <Ionicons name='female' size={55} color='pink' />
                             )}
                         </View>
-                        <View style={{flex:1,backgroundColor:mycolors.white,paddingHorizontal:15,paddingVertical:10,borderRadius:13,marginLeft:5}}>
+                        <View style={{flex:1,backgroundColor:'#cad6ff',justifyContent:'center',marginLeft:25}}>
                         <Text style={styles.itemName}>{item.name}</Text>
                         <View style={{flexDirection:'row'}}>
                         <Text style={styles.itemDetail}> {item.specialization}</Text>
@@ -82,32 +84,48 @@ const ItemList = () => {
 };
 
 // App component
-const Doctorinfolist = () => {
+const Doctor = () => {
     return (
-        <SafeAreaView style={styles.container}>
-            <ItemList />
+        <AppWrapper>
+            <View style={{flexDirection:'row',flex:1.0,alignItems:'center', justifyContent: 'center'}}>
+  <TouchableOpacity style={{position: 'absolute',left: 10}}>
+  <MaterialIcons 
+    name="arrow-back-ios" 
+    size={30} 
+    color={mycolors.ThemeBlue} 
+  />
+  </TouchableOpacity>
+  
+  
+
+  <Text style={{color:mycolors.ThemeBlue, fontFamily:'LeagueSpartan-SemiBold', fontSize:24}}>
+    Doctors
+  </Text>
+</View>
+        <SafeAreaView style={{flex:8,backgroundColor: mycolors.white,}}>
+            <DoctorList />
         </SafeAreaView>
+        </AppWrapper>
     );
 };
 
 // Styles
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: mycolors.white,
-    },
+    
     itemContainer: {
         backgroundColor: '#cad6ff',
+        height:180,
         padding: 10,
         marginVertical: 5,
         borderRadius: 25,
          // For Android shadow
     },
     iconContainer: {
-        width: 70,        // Set explicit width
-        height: 70,       // Set explicit height, same as width to form a circle
+        width: 100,        // Set explicit width
+        height:100,   
+        marginTop:20,    // Set explicit height, same as width to form a circle
         backgroundColor: mycolors.white,
-        borderRadius: 35, // Half of the width/height to make it a circle
+        borderRadius: 60, // Half of the width/height to make it a circle
         padding: 5,
         justifyContent: 'center',  // Centers content vertically
         alignItems: 'center',      // Centers content horizontally
@@ -151,5 +169,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Doctorinfolist;
+export default Doctor;
 
