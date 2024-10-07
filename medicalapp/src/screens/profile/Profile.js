@@ -26,7 +26,9 @@ const Profile = () => {
   return (
     <AppWrapper>
    <View style={{flexDirection:'row',flex:1.0,alignItems:'center', justifyContent: 'center'}}>
-  <TouchableOpacity style={{position: 'absolute',left: 10}}>
+  <TouchableOpacity style={{position: 'absolute',left: 10}}
+    onPress={()=>navigation.goBack()}
+  >
   <MaterialIcons 
     name="arrow-back-ios" 
     size={30} 

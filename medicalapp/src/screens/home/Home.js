@@ -24,8 +24,8 @@ const Home = () => {
       <Text style={{paddingTop:8,left:15,fontSize:16,color:mycolors.ThemeBlue,fontFamily:'LeagueSpartan-Thin'}} >Hi,WelcomeBack</Text>
       
       <Text style ={{left:15,color:mycolors.black,fontSize:18,fontFamily:'LeagueSpartan-Regular'}}>
-        {/* {userData.name} */}
-        John Doe
+        {userData.name}
+        {/* John Doe */}
         </Text>
       </View>
       <TouchableOpacity style={{marginLeft:145,marginRight:1,marginTop:7,width: 48, height: 48, backgroundColor: '#cad6ff', justifyContent:'center', borderRadius: 24,  alignItems: 'center', }}>
