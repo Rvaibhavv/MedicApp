@@ -31,7 +31,7 @@ const Home = () => {
       <TouchableOpacity style={{marginLeft:145,marginRight:1,marginTop:7,width: 48, height: 48, backgroundColor: '#cad6ff', justifyContent:'center', borderRadius: 24,  alignItems: 'center', }}>
       <Ionicons name ='notifications-outline' size ={30} color={mycolors.black}/>
       </TouchableOpacity>
-      <TouchableOpacity style={{marginLeft:5,marginRight:8,marginTop:7,width: 48, height: 48, backgroundColor: '#cad6ff', justifyContent:'center', borderRadius: 24,  alignItems: 'center', }}>
+      <TouchableOpacity style={{marginLeft:5,marginRight:8,marginTop:7,width: 48, height: 48, backgroundColor: '#cad6ff', justifyContent:'center', borderRadius: 24,  alignItems: 'center', }} onPress={()=>navigation.navigate('AppSettings')}>
       <AntDesign name ='setting' size ={30} color={mycolors.black}/>
       </TouchableOpacity>
     </View>

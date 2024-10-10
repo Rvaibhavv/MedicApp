@@ -27,7 +27,7 @@ const Profile = () => {
     <AppWrapper>
    <View style={{flexDirection:'row',flex:1.0,alignItems:'center', justifyContent: 'center'}}>
   <TouchableOpacity style={{position: 'absolute',left: 10}}
-    onPress={()=>navigation.goBack()}
+    onPress={()=>navigation.navigate('Home')}
   >
   <MaterialIcons 
     name="arrow-back-ios" 
@@ -154,7 +154,7 @@ const Profile = () => {
   onRequestClose={() => setModalVisible(false)}
 >
   <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0)' }}>
-    <View style={{ flex:0.2,width: '100%', backgroundColor: 'white', padding: 20,borderWidth:1.5,borderColor:'#ebf1f7', borderTopLeftRadius: 50, borderTopRightRadius: 50 }}>
+    <View style={{ flex:0.2,width: '100%', backgroundColor: 'white', padding: 20,borderWidth:0.6,borderColor:'#ebf1f7', borderTopLeftRadius: 50, borderTopRightRadius: 50 }}>
     <Text style={{ color: mycolors.ThemeBlue,  textAlign: 'center',fontFamily: 'LeagueSpartan-SemiBold', fontSize: 24 }}>
               Log Out
             </Text>

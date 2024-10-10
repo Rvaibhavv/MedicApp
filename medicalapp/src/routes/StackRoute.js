@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator();
 
 const StackRoute = () => {
   return (
-  <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Chat' >
+  <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Doctor' >
 <Stack.Screen name="Splash" component={Splash}/>
 <Stack.Screen name="Welcome" component={Welcome}/>
 <Stack.Screen name="Login" component={Login}/>
